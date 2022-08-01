@@ -1,0 +1,16 @@
+tsc "nome-arquivo"
+isso vai compilar meu arquivo typscript para um arquivo Javascript
+
+tsc "nome-arquivo".ts --target "ES2015"
+vai compilar o arquivo js no padrão ecma-script 2015
+
+tsc
+vai compilar todos os arquivos da pasta
+
+tsc --watch
+Com esse comando, o typescript vai ficar monitorando qualquer alteração em arquivos e pastas para gerar o build automático
+
+node 'nome-arquivo'.js
+Roda o arquivo Javascript
+
+O typescript é apenas um organizador de arquivos e código. O browser não reconhece o typescript
