@@ -12,18 +12,21 @@ const left4dead: Game ={
     status:true
 }
 
-interface Dlc extends Game {
-    plataform: string[],
+interface NewFeature {
+    releasedDate: Date,
+    featureName: string
+}
+
+interface Dlc extends NewFeature{ // quando uso extends, posso pensar no ' É '
+    plataform: string[],         // a DLC "Tem" uma plataforma e um jogo
     originalGame: Game
 }
 
 const dlcLeft4Dead: Dlc = {
-    id: '222',
-    name:'Left4Dead',
-    price:200,
-    status:true,
     plataform: ['more game'],
-    originalGame: left4dead
+    originalGame: left4dead,
+    releasedDate:new Date(),
+    featureName: 'Mapa Azilo'
 }
 
 console.log('dlc left', dlcLeft4Dead)

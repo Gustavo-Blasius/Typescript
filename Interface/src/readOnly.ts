@@ -1,4 +1,4 @@
-interface ProdutoProps{
+interface ProdutoProps {
     readonly id:string, // não deixa a prop ser alterada
     nome:string,
     descricao:string;
