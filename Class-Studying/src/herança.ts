@@ -9,28 +9,34 @@
 type NIVEL = 'ADM' | 'USER';
 
  class Usuario{
-    constructor(name:string, email:string){
+    constructor(name:string, email:string, id: string){
+        this.id = id;
         this.name = name;
         this.email = email;
+        this.internal = 'Dados internos'
     }
 
-    name:string;
-    email:string;
+    
+    name:string; // mesma coisa que public ...
+    public email:string;
+    private internal:string // poderá ser acessada somente dentro da classe USUÁRIO
+    protected id: string; // pode ser acessado apenas na própria classe em em suas subclasses
  }
 
- class Admin extends Usuario{
+ class Admin extends Usuario {
 
-    constructor(name:string, email:string, cargo:string, nivel:NIVEL){
+    constructor(name:string, email:string, cargo:string, nivel:NIVEL, id:string){
 
-        super(name, email) // esse super é referente ao constructor da class Usuário. Ou seja, esses parâmetros são tratados no
+        super(name, email, id) // esse super é referente ao constructor da class Usuário. Ou seja, esses parâmetros são tratados no
         // constructor da class usuário
-
+        this.id = id;
         this.cargo = cargo;
         this.nivel = nivel;
     }  
 
     cargo: string;
     nivel: NIVEL;
+    id: string;
 
     publicMethod():void {
         console.log('public')
@@ -39,10 +45,15 @@ type NIVEL = 'ADM' | 'USER';
    private privateMethod():void {
         console.log('private')
     }
+
+    protected functionProtected():string{
+        return 'whatever';
+    }
 }
 
- const newAdmin = new Admin('Gustavo', 'blasiusgustavo19@gmail.com', 'AAAA', 'USER')
+ const newAdmin = new Admin('Gustavo', 'blasiusgustavo19@gmail.com', 'AAAA', 'USER', '1234567');
  newAdmin.cargo = 'desenvolvedor';
+ //newAdmin.functionProtected(); Irá acontecer um erro, pois o encapsulamento só é acessível em classes e subclasses;
 
  console.log('newAdmin', newAdmin)
 
