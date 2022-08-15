@@ -1,2 +1,2 @@
 # Typescript
- Repository for study in typescript
+ Repository for studies in typescript
