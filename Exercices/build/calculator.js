@@ -1,6 +1,9 @@
 "use strict";
 // 1 - Fazer as funções de calculo
 function mainCalculator({ value01, value02, operation }) {
+    if (!value01) {
+        console.log('testestesteste');
+    }
     switch (operation) {
         case '+':
             return sum(value01, value02);
@@ -27,7 +30,7 @@ function multiply(value01, value02) {
     return value01 * value02;
 }
 let info = {
-    value01: 10,
+    value01: 0,
     value02: 20,
     operation: '+'
 };

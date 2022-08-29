@@ -8,6 +8,10 @@ interface Calculator{
 
 function mainCalculator({value01, value02, operation}:Calculator){
 
+    if(!value01){
+        console.log('testestesteste')
+    }
+
     switch (operation) {
         case '+':
         
@@ -47,7 +51,7 @@ function multiply(value01:number, value02:number){
 }
 
 let info: Calculator = {
-    value01: 10,
+    value01: 0,
     value02: 20,
     operation: '+'
 }
