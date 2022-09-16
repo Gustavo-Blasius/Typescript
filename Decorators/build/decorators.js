@@ -14,13 +14,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
   GETTERS / SETTERS (BEM POUCO USADO)
 */
 // Padrão Factory
-function logInfo(mensagem) {
+// function logInfo(mensagem:string){ // por orientações da documentação do ts, parametros de decorators devem ser do tipo 'any'
+//   return (target: any)=>{
+//     console.log(`${mensagem}, ${target}`)
+//   }
+// }
+// @logInfo("Servidor está rodando")
+// class System{
+// }
+// ========= PRATICANDO ============
+function setIpServer(newIp) {
     return (target) => {
-        console.log(`${mensagem}, ${target}`);
+        return class extends target {
+            constructor() {
+                super(...arguments);
+                this.ip = newIp;
+            }
+        };
     };
 }
-let System = class System {
+let Server = class Server {
 };
-System = __decorate([
-    logInfo("Servidor está rodando")
-], System);
+Server = __decorate([
+    setIpServer("192.168.5.5")
+], Server);
+const server = new Server();
+console.log('teste server', server);
